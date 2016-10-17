@@ -1,0 +1,50 @@
+{
+  "name": "monitos.io",
+  "version": "0.1.0",
+  "description": "Monitos meets Socket.IO",
+  "main": "lib/monito.io.js",
+  "engines": {
+    "node": "^4.6.0"
+  },
+  "scripts": {
+    "test": "gulp lint && gulp test",
+    "precommit": "gulp lint",
+    "prepush": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dunkelheit/monitos.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dunkelheit/monitos.io/issues"
+  },
+  "keywords": [
+    "monitos",
+    "socket",
+    "fsm",
+    "finite",
+    "state",
+    "machines",
+    "automaton",
+    "automata",
+    "d&d",
+    "dungeons",
+    "dragons",
+    "saving",
+    "throw"
+  ],
+  "author": "Arturo Martinez <dunkelheit@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "monitos": "0.3.0"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "gulp": "3.9.1",
+    "gulp-istanbul": "1.1.1",
+    "gulp-jshint": "2.0.1",
+    "gulp-mocha": "3.0.1",
+    "husky": "0.11.9",
+    "jshint-stylish": "2.2.1"
+  }
+}
