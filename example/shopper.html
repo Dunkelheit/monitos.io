@@ -8,20 +8,20 @@
 </head>
 <body>
     <h1>Hello, shopper</h1>
-    <div id="output"></div>
+    <pre id="output"></pre>
 </body>
 <script>
     var output = $('#output');
     var socket = io('http://localhost:9183');
     socket.on('error', function (err) {
         console.log(err);
-        output.append('<p>Error!</p>');
+        output.html('<p>Error!</p>');
     });
     socket.on('state', function (data) {
-        output.append('<p>Moving to state: ' + data + '</p>');
+        output.html('<p>Moving to state: ' + data + '</p>');
     });
     socket.on('end', function () {
-        output.append('<p>We are done</p>');
+        output.html('<p>We are done</p>');
     });
 </script>
 </html>

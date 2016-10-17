@@ -9,29 +9,43 @@ class Shopper extends Monito {
     }
 }
 
+function delay(done) {
+    setTimeout(done, 200);
+}
+
 const states = {
     register: (monito, next) => {
-        next(null, 'getProfile');
+        delay(() => {
+            next(null, 'getProfile');
+        });
     },
     getProfile: (monito, next) => {
-        next(null, {
-            browse: 4
-        }, 'shop');
+        delay(() => {
+            next(null, {
+                browse: 4
+            }, 'shop');
+        });
     },
     browse: (monito, next) => {
-        next(null, {
-            browse: (/* monito */) => 6
-        }, 'shop');
+        delay(() => {
+            next(null, {
+                browse: (/* monito */) => 6
+            }, 'shop');
+        });
     },
     shop: (monito, next) => {
-        next(null, 'logout');
+        delay(() => {
+            next(null, 'logout');
+        });
     },
     logout: (monito, next) => {
-        next(null, 'register');
+        delay(() => {
+            next(null, 'register');
+        });
     }
 };
 
-Monito.openSocket();
+Monito.openSocket(9183);
 
 let chimp = new Shopper(states, 'register');
 
