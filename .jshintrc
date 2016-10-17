@@ -20,6 +20,7 @@
     "globals": {
         "describe": false,
         "it": false,
-        "afterEach": false
+        "afterEach": false,
+        "beforeEach": false
     }
 }

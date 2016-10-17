@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitos.io shopper example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://localhost:9183/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <h1>Hello, shopper</h1>
+    <div id="output"></div>
+</body>
+<script>
+    var output = $('#output');
+    var socket = io('http://localhost:9183');
+    socket.on('error', function (err) {
+        console.log(err);
+        output.append('<p>Error!</p>');
+    });
+    socket.on('state', function (data) {
+        output.append('<p>Moving to state: ' + data + '</p>');
+    });
+    socket.on('end', function () {
+        output.append('<p>We are done</p>');
+    });
+</script>
+</html>

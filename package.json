@@ -36,7 +36,8 @@
   "author": "Arturo Martinez <dunkelheit@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "monitos": "0.3.0"
+    "monitos": "0.3.2",
+    "socket.io": "1.5.0"
   },
   "devDependencies": {
     "chai": "3.5.0",
