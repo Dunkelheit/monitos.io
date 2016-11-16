@@ -44,7 +44,7 @@ See the [full code of the example](example).
 ```
 Monito.openSocket(9183);
 
-let chimp = new Monito(states, initialState);
+let chimp = new Monito(options);
 
 chimp.on('end', () => {
     Monito.closeSocket()
