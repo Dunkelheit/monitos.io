@@ -10,26 +10,29 @@ Example:
 Monito.openSocket(9183);            // Socket.IO server on port 9183
 
 let chimp = new Monito({
-    register: (monito, next) => {
-        next(null, 'getProfile');   // Go straight to the state "getProfile"
-    },
-    getProfile: (monito, next) => {
-        next(null, {
-            browse: 4               // If your dice rolls 4 or more, go to "browse"
-        }, 'shop');                 // Otherwise, by default, go to "shop"
-    },
-    browse: (monito, next) => {
-        next(null, {
-            browse: monito => 6     // You can also use functions
-        }, 'shop');                 
-    },
-    shop: (monito, next) => {
-        next(null, 'logout');       // Go straight to the state "logout"
-    },
-    logout: (monito, next) => {
-        next();                     // This will be the last state
+    initialState: 'register',
+    states: {
+        register: (next) => {
+            next(null, 'getProfile');   // Go straight to the state "getProfile"
+        },
+        getProfile: (next) => {
+            next(null, {
+                browse: 4               // If your dice rolls 4 or more, go to "browse"
+            }, 'shop');                 // Otherwise, by default, go to "shop"
+        },
+        browse: (next) => {
+            next(null, {
+                browse: monito => 6     // You can also use functions
+            }, 'shop');                 
+        },
+        shop: (next) => {
+            next(null, 'logout');       // Go straight to the state "logout"
+        },
+        logout: (next) => {
+            next();                     // This will be the last state
+        }
     }
-}, 'register');                     // Initial state
+});
 
 chimp.start();
 ```
