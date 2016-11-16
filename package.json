@@ -1,6 +1,6 @@
 {
   "name": "monitos.io",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Monitos meets Socket.IO",
   "main": "lib/monito.io.js",
   "engines": {
